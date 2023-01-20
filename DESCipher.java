@@ -1,12 +1,6 @@
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
-import javax.crypto.BadPaddingException;
-import javax.crypto.Cipher;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.KeyGenerator;
-import javax.crypto.NoSuchPaddingException;
-import javax.crypto.SecretKey;
-public class DESCipher{
+import java.security.*;
+import javax.crypto.*;
+public class DESCipher {
     public static void main(String[] args) {
         try{
             System.out.println("Message Encryption Using DES Algorithm\n-------");
@@ -24,15 +18,7 @@ public class DESCipher{
             byte[] textDecrypted = desCipher.doFinal(textEncrypted);
             System.out.println("Decrypted Message: " + new 
             String(textDecrypted));
-        }catch(NoSuchAlgorithmException e){
-            e.printStackTrace();
-        }catch(NoSuchPaddingException e){
-            e.printStackTrace();
-        }catch(InvalidKeyException e){
-            e.printStackTrace();
-        }catch(IllegalBlockSizeException e){
-            e.printStackTrace();
-        }catch(BadPaddingException e){
+        }catch(Exception e){
             e.printStackTrace();
         }
     }
