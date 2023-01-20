@@ -1,12 +1,8 @@
 import java.util.*;
 class PlayfairCipher {
     public static void main(String[] args) {
-        String alphabets = "abcdefghiklmnopqrstuvwxyz", result = "";
+        String result = "";
         ArrayList<Character> alphabetsList = new ArrayList<>();
-        boolean[] entried = new boolean[25];
-        for(int i = 0; i < 25; i++){
-            entried[i] = false;
-        }
         char[][] matrix = new char[5][5];
         alphabetsList.add('a');
         alphabetsList.add('b');
@@ -47,21 +43,10 @@ class PlayfairCipher {
                 if(x >= keyword.length()){
                     break;
                 }
-                for(int k = 0; k < 25; k++){
-                    if(keyword.charAt(x) == alphabets.charAt(k)){
-                        index = k; 
-                        break;
-                    }
-                }
-                if(entried[index] == false){
-                    matrix[i][j] = keyword.charAt(x);
-                    entried[index] = true;
-                    x += 1;
-                }
+                matrix[i][j] = keyword.charAt(x);
+                alphabetsList.remove(Character.valueOf(keyword.charAt(x)));
+                x += 1;
             }
-        }
-        for(int i = 0; i < keyword.length(); i++){
-            alphabetsList.remove(Character.valueOf(keyword.charAt(i)));
         }
         x = 0;
         for(int i = 0; i < 5; i++){
@@ -80,6 +65,9 @@ class PlayfairCipher {
         }
         System.out.println("Enter message: ");
         message = scanner.nextLine();
+        boolean tempFound = false;
+        int j1 = 0, k1 = 0, j2 = 0, k2 = 0, resj1 = 0, resk1 = 0, resj2 = 0, resk2 = 0;
+        boolean oneFound = false, twoFound = false;
         for(int i = 0; i < message.length(); i += 2){
             char char1 = message.charAt(i);
             char char2 = message.charAt(i+1);
