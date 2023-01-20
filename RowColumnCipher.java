@@ -56,12 +56,6 @@ class RowColumnCipher {
         }
         for(int i = 0; i < depth; i++){
             for(int j = 0; j < cols; j++){
-                System.out.print(matrix[i][j]);
-            }
-            System.out.println();
-        }
-        for(int i = 0; i < depth; i++){
-            for(int j = 0; j < cols; j++){
                 if(matrix[i][j] == 0){
                     break;
                 }
