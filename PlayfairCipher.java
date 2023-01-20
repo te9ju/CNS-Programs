@@ -65,9 +65,6 @@ class PlayfairCipher {
         }
         System.out.println("Enter message: ");
         message = scanner.nextLine();
-        boolean tempFound = false;
-        int j1 = 0, k1 = 0, j2 = 0, k2 = 0, resj1 = 0, resk1 = 0, resj2 = 0, resk2 = 0;
-        boolean oneFound = false, twoFound = false;
         for(int i = 0; i < message.length(); i += 2){
             char char1 = message.charAt(i);
             char char2 = message.charAt(i+1);
